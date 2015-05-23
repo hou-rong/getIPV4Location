@@ -1,4 +1,4 @@
 from .ipv4ToLocation import findIP
 
-__Version__ = '0.0.4'
+__Version__ = '0.0.5'
 
