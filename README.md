@@ -5,7 +5,7 @@
 
 ##Install
 
-    pip3 install ipv4ToLocation
+    pip3 install ipv4ToLocation.py
 
 ##Usage
 Code:
