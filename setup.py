@@ -33,6 +33,7 @@ setup(
     license='mit',
     author='HouRong',
     author_email='nmghr9@gmail.com',
+    url='https://github.com/nmghr9/getIPV4Location',
     description='ipv4ToLocation',
     long_description=__doc__,
     data_files=[('ipv4ToLocation', ['README.md', 'ipv4wry.db'])],
