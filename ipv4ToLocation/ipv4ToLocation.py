@@ -5,7 +5,7 @@ import struct
 
 class IPv4toLocation(object):
     def __init__(self):
-        dbFile = os.path.join(os.path.dirname(__file__), 'ipv4wry.db')
+        dbFile = os.path.join(os.path.dirname(__file__), 'ipv4wry.dat')
         self.ip = 0
         self.ipFile = open(dbFile, 'rb')
 

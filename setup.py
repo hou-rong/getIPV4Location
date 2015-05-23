@@ -24,7 +24,7 @@ Output:
     {'area': '信风网络科技有限公司公众DNS服务器', 'country': '江苏省南京市'}
 
 """
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 from ipv4ToLocation import __Version__
 
 setup(
@@ -36,10 +36,6 @@ setup(
     url='https://github.com/nmghr9/getIPV4Location',
     description='ipv4ToLocation',
     long_description=__doc__,
-    data_files=[('ipv4ToLocation', ['README.md', 'ipv4wry.db'])],
-    packages=find_packages(),
-    include_package_data=True,
-    zip_safe=False,
     platforms='any',
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -50,4 +46,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
+    packages=find_packages(),
+    include_package_data=True,
+    package_data={'ipv4ToLocation': ["ipv4ToLocation/ipv4wry.dat", ]},
 )

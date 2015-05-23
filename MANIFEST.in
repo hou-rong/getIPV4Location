@@ -1,2 +1,1 @@
-include ipv4wry.db
-include README.md
+include ipv4ToLocation/ipv4wry.dat
