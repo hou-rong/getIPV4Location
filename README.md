@@ -1,5 +1,6 @@
 #ipv4ToLocation
 ##develop environment
+<<<<<<< HEAD
  
     python3.4.3
 
@@ -7,6 +8,9 @@
 
     pip3 install ipv4ToLocation 
 
+=======
+    python3.4.3
+>>>>>>> origin/master
 ##Usage
 Code:
 

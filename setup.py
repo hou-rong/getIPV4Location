@@ -1,8 +1,6 @@
 """
 ipv4ToLocation.py
 --------
-
-#ipv4ToLocation
 ##develop environment
 
     python3.4.3
