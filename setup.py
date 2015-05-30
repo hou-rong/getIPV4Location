@@ -1,16 +1,10 @@
 """
 ipv4ToLocation.py
 --------
-##develop environment
+You can use this model to find ipAddress' Location
+Support better for chinese ipAddress
 
-    python3.4.3
-
-##Install
-
-    pip3 install ipv4ToLocation
-
-##Usage
-Code:
+Source:
 
 ```python
 import ipv4ToLocation

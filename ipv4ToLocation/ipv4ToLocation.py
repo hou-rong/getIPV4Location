@@ -12,7 +12,6 @@ class IPv4toLocation(object):
     def __ipToLong(self, strIP):
         return struct.unpack('!L', socket.inet_aton(strIP))[0]
 
-
     def __readIPArray(self):
         num = self.__readLongX(4)
         num3 = int((self.__readLongX(4) - num) / 7) + 1
@@ -30,10 +29,13 @@ class IPv4toLocation(object):
         return self.__bytesToNumber(rawData)
 
     def __bytesToNumber(self, rawData):
-        while rawData.__len__() < 8:
-            rawData.append(0)
-        rawData.reverse()
-        return struct.unpack('!q', bytes(rawData))[0]
+        sum = 0
+        for i in rawData[::-1]:
+            sum += i
+            sum <<= 8
+
+        sum >>= 8
+        return sum
 
     def __searchIP(self, ipArray, start, end):
         index = int((start + end) / 2)
@@ -55,7 +57,6 @@ class IPv4toLocation(object):
                 break
             rawData += tmp
         return str(rawData, 'gbk')
-
 
     def getIPLocation(self, strIP):
         self.ip = self.__ipToLong(strIP)
@@ -88,7 +89,7 @@ def findIP(strIP):
 
 
 if __name__ == '__main__':
-    NUM = 20
+    NUM = 200
     import random, time
 
     start = time.time()
