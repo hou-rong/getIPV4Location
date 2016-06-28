@@ -1,6 +1,7 @@
 import os
 import socket
 import struct
+import sys
 
 
 class IPv4toLocation(object):
@@ -46,17 +47,31 @@ class IPv4toLocation(object):
         return self.__searchIP(ipArray, index, end)
 
     def __readString(self, flag):
-        if flag == 1 or flag == 2:
-            self.ipFile.seek(self.__readLongX(3))
+        if (3,)<sys.version_info:
+            if flag == 1 or flag == 2:
+                self.ipFile.seek(self.__readLongX(3))
+            else:
+                self.ipFile.seek(-1, 1)
+            rawData = b''
+            while True:
+                tmp = self.ipFile.read(1)
+                if tmp == b'\x00':
+                    break
+                rawData += tmp
+            return str(rawData,'gbk')
         else:
-            self.ipFile.seek(-1, 1)
-        rawData = b''
-        while True:
-            tmp = self.ipFile.read(1)
-            if tmp == b'\x00':
-                break
-            rawData += tmp
-        return str(rawData, 'gbk')
+            if flag == 1 or flag == 2:
+                self.ipFile.seek(self.__readLongX(3))
+            else:
+                self.ipFile.seek(-1, 1)
+            rawData = b''
+            while True:
+                tmp = self.ipFile.read(1)
+                if tmp == b'\x00':
+                    break
+                rawData += tmp
+            return rawData.decode('gbk')
+
 
     def getIPLocation(self, strIP):
         self.ip = self.__ipToLong(strIP)
@@ -89,7 +104,7 @@ def findIP(strIP):
 
 
 if __name__ == '__main__':
-    NUM = 200
+    NUM = 5
     import random, time
 
     start = time.time()
